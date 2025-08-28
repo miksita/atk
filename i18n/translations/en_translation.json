@@ -1,0 +1,63 @@
+{
+    "logisticBlock": {
+        "internationalTransportation": {
+            "tab": "International Transportation",
+            "content": {
+                "title": "International Transportation",
+                "description": "ATK Vladivostok provides a full range of international cargo transportation services. We ensure reliable delivery of your goods worldwide, complying with all customs procedures.",
+                "icon": "FaGlobe"
+            }
+        },
+        "containerService": {
+            "tab": "Container Service",
+            "content": {
+                "title": "Container Service",
+                "description": "Professional container services include transportation, storage, and customs clearance for all types of containers. We handle 20-foot, 40-foot, and refrigerated containers.",
+                "icon": "FaShippingFast"
+            }
+        },
+        "behind": {
+            "tab": "Behind the Scenes",
+            "content": {
+                "title": "Behind the Scenes of ATK Vladivostok",
+                "description": "Here you can see how our company works from the inside - our warehouses, transport, loading and unloading processes, and meet our team of professionals.",
+                "icon": "FaBuilding"
+            }
+        },
+        "aboutCompany": {
+            "tab": "About Company",
+            "content": {
+                "title": "About Company",
+                "description": "Company Information",
+                "icon": "FaPhotoVideo"
+            }
+        }
+    },
+    "contactForm": {
+        "title": "Submit Application",
+        "fields": {
+            "name": "Your name",
+            "phone": "Your phone",
+            "email": "Your email",
+            "service": "Select service",
+            "message": "Additional information"
+        },
+        "services": {
+            "default": "Select service",
+            "international": "International transportation",
+            "container": "Container service",
+            "other": "Other"
+        },
+        "submitButton": "Отправить заявку",
+        "successModal": {
+            "title": "Application Sent",
+            "message": "Thank you for your application! We will contact you shortly.",
+            "button": "Close"
+        }
+    },
+    "footer": {
+        "logoAlt": "ATK Logo",
+        "copyrightTextDate": "© 2014",
+        "copyrightTextCompany": "Logistics company ATK"
+    }
+}

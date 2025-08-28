@@ -1,0 +1,63 @@
+{
+    "logisticBlock": {
+        "internationalTransportation": {
+            "tab": "国际运输",
+            "content": {
+                "title": "国际运输",
+                "description": "ATK符拉迪沃斯托克提供全方位的国际货物运输服务。我们确保您的货物在全球范围内可靠交付，并遵守所有海关程序。",
+                "icon": "FaGlobe"
+            }
+        },
+        "containerService": {
+            "tab": "集装箱服务",
+            "content": {
+                "title": "集装箱服务",
+                "description": "专业的集装箱服务包括所有类型集装箱的运输、仓储和清关。我们处理20英尺、40英尺和冷藏集装箱。",
+                "icon": "FaShippingFast"
+            }
+        },
+        "behind": {
+            "tab": "幕后花絮",
+            "content": {
+                "title": "ATK符拉迪沃斯托克的幕后",
+                "description": "在这里，您可以看到我们公司的内部运作——我们的仓库、运输工具、装卸过程，并认识我们的专业团队。",
+                "icon": "FaBuilding"
+            }
+        },
+        "aboutCompany": {
+            "tab": "关于公司",
+            "content": {
+                "title": "关于公司",
+                "description": "公司信息",
+                "icon": "FaPhotoVideo"
+            }
+        }
+    },
+    "contactForm": {
+        "title": "提交申请",
+        "fields": {
+            "name": "您的姓名",
+            "phone": "您的电话",
+            "email": "您的邮箱",
+            "service": "选择服务",
+            "message": "附加信息"
+        },
+        "services": {
+            "default": "选择服务",
+            "international": "国际运输",
+            "container": "集装箱服务",
+            "other": "其他"
+        },
+        "submitButton": "提交申请",
+        "successModal": {
+"title": "申请已发送",
+"message": "感谢您的申请！我们将尽快与您联系。",
+"button": "关闭"
+}
+    },
+    "footer": {
+        "logoAlt": "ATK 标志",
+        "copyrightTextDate": "© 2014",
+        "copyrightTextCompany": "物流公司 ATK"
+    }
+}
