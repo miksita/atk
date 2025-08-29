@@ -29,7 +29,7 @@ const SuccessModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
             </svg>
           </div>
         </div>
-        <h3 className="text-xl font-semibold text-white text-center mb-2">
+        <h3 className="title text-center mb-2">
           {t('contactForm.successModal.title')}
         </h3>
         <p className="text-zinc-300 text-center mb-6">
@@ -88,7 +88,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
         <div className="conteiner-custom">
           <div className="">
             <div className="flex items-center justify-start mb-6 border-b border-zinc-700 pb-4">
-              <h2 className="text-3xl flex items-start gap-3">
+              <h2 className="title flex items-start gap-3">
                 <svg className="w-8 h-8 text-blue-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
@@ -152,7 +152,7 @@ export default function ContactForm({ onSubmit }: ContactFormProps) {
                     placeholder={t('contactForm.fields.message')}
                     name="message"
                     rows={4}
-                    className="w-full px-4 py-3 bg-zinc-950 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-700 border-1 border-zinc-700 resize-none "
+                    className="w-full px-4 py-3 bg-zinc-950 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-700 border-1 border-zinc-700 resize-none text-sm"
                     value={formData.message}
                     onChange={handleChange}
                   />

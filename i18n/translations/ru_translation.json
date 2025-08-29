@@ -33,7 +33,6 @@
             }
         }
     },
-    
     "contactForm": {
         "title": "Оставить заявку",
         "fields": {
@@ -56,6 +55,7 @@
             "button": "Закрыть"
         }
     },
+    
     "footer": {
         "logoAlt": "Логотип АТК",
         "copyrightTextDate": "© 2014",

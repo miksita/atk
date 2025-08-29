@@ -12,30 +12,30 @@ export default function LanguageSwitcher() {
   const currentLanguage = i18n.language;
 
   return (
-    <div className="flex w-full md:w-auto border border-zinc-700 rounded-md overflow-hidden">
+    <div className="flex w-full md:w-auto gap-2 overflow-hidden">
       <button
         onClick={() => changeLanguage("en")}
-        className={`flex-1 py-3 md:px-6 px-4 text-center transition-all duration-300 text-sm relative ${currentLanguage === "en"
+        className={`flex-1 py-2 px-6 text-center transition-all duration-300 text-sm relative border border-zinc-700 rounded-lg ${currentLanguage === "en"
             ? 'text-white bg-blue-900'
             : 'text-zinc-300 hover:bg-zinc-900'
-          } border-r border-zinc-700`}
+          }`}
       >
         EN
       </button>
 
       <button
         onClick={() => changeLanguage("ru")}
-        className={`flex-1 py-3 md:px-6 px-4 text-center transition-all duration-300 text-sm relative ${currentLanguage === "ru"
+        className={`flex-1 py-2 px-6 text-center transition-all duration-300 text-sm relative border border-zinc-700 rounded-lg  ${currentLanguage === "ru"
             ? 'text-white bg-blue-900'
             : 'text-zinc-300 hover:bg-zinc-900'
-          } border-r border-zinc-700`}
+          }  `}
       >
         РУС
       </button>
 
       <button
         onClick={() => changeLanguage("zh")}
-        className={`flex-1 py-3 md:px-6 px-4 text-center transition-all duration-300 text-sm relative ${currentLanguage === "zh"
+        className={`flex-1 py-1 px-6 text-center transition-all duration-300 text-sm relative border border-zinc-700 rounded-lg ${currentLanguage === "zh"
             ? 'text-white bg-blue-900'
             : 'text-zinc-300 hover:bg-zinc-900'
           }`}

@@ -11,8 +11,13 @@
   }
 
   .input-custom {
-    @apply w-full px-4 py-3 bg-zinc-950 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-700 border-1 border-zinc-700;
+    @apply w-full px-4 py-3 bg-zinc-950 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-700 border-1 border-zinc-700 text-sm ;
   }
+
+  .title {
+    @apply md:text-2xl text-xl text-white;
+  }
+
 }
 
 @theme inline {
@@ -29,4 +34,13 @@ body {
 
 * {
   font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

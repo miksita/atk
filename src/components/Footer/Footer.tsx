@@ -30,7 +30,7 @@ export default function Footer() {
             className="object-contain"
           />
         </div>
-        <div className="text-zinc-500 text-sm text-center md:text-left">
+        <div className="text-zinc-300 text-sm text-center md:text-left">
           {`${t("footer.copyrightTextDate")}-${currentYear} ${t("footer.copyrightTextCompany")}`}
         </div>
       </div>

@@ -24,7 +24,7 @@ const TabContent = ({ activeTab }: TabContentProps) => {
   return (
     <div className="animate-fadeIn">
       <div className="flex items-start justify-start gap-3 mb-6 border-b border-zinc-700 pb-4 pt-12">
-        <h2 className="text-3xl flex items-start gap-3">
+        <h2 className="title flex items-start gap-3">
           <IconComponent className="text-3xl text-blue-800" />
           {content.title}
         </h2>
