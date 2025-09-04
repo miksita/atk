@@ -6,19 +6,20 @@ import LogoRU from './../../../public/images/logo-ru.svg';
 import LogoEN from './../../../public/images/logo-en.svg';
 
 export default function LogoHeader({ className = "", width = 120, height = 40, animate = false }) {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const currentLanguage = i18n.language;
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [isLogoAnimating, setIsLogoAnimating] = useState(false);
+  const [isTextAnimating, setIsTextAnimating] = useState(false);
   const logoRef = useRef(null);
 
   useEffect(() => {
     if (animate) {
       const timer = setTimeout(() => {
-        setIsAnimating(true);
+        setIsLogoAnimating(true);
         
         setTimeout(() => {
-          setIsAnimating(false);
-        }, 1000);
+          setIsTextAnimating(true);
+        }, 1000); 
       }, 5000); 
 
       return () => clearTimeout(timer);
@@ -36,8 +37,8 @@ export default function LogoHeader({ className = "", width = 120, height = 40, a
   const logo = getLogo();
 
   return (
-    <>
-      <div className={`flex-shrink-0 ${isAnimating ? 'animate-logo-slide' : ''} ${className}`} ref={logoRef}>
+    <div className={`flex flex-col items-start ${className}`}>
+      <div className={`flex-shrink-0 ${isLogoAnimating ? 'animate-logo-slide' : ''}`} ref={logoRef}>
         <Image
           src={logo}
           alt="Logo"
@@ -45,6 +46,12 @@ export default function LogoHeader({ className = "", width = 120, height = 40, a
           height={height}
           className="w-auto h-24"
         />
+      </div>
+      
+      <div className={`mt-4 ${isTextAnimating ? 'animate-logo-slide' : 'opacity-0'}`}>
+        <span className="text-base font-light tracking-wider text-white">
+          Профессиональная логистическая компания АТК
+        </span>
       </div>
 
       <style jsx>{`
@@ -63,6 +70,6 @@ export default function LogoHeader({ className = "", width = 120, height = 40, a
           animation: logoSlide 1s ease-out forwards;
         }
       `}</style>
-    </>
+    </div>
   );
 }

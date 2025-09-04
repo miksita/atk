@@ -48,7 +48,7 @@
             "container": "Container service",
             "other": "Other"
         },
-        "submitButton": "Отправить заявку",
+        "submitButton": "Send an application",
         "successModal": {
             "title": "Application Sent",
             "message": "Thank you for your application! We will contact you shortly.",

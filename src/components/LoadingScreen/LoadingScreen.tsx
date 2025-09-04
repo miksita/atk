@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import Logo from '../../../public/images/logo-simple.svg'
 
@@ -11,8 +11,16 @@ interface LoadingScreenProps {
 export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
   const [isVisible, setIsVisible] = useState(true);
   const [animationStage, setAnimationStage] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
+  const [audioPlayed, setAudioPlayed] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
+    setIsMounted(true);
+    
+    audioRef.current = new Audio('/audio/loading-sound.mp3');
+    audioRef.current.preload = 'auto';
+    
     const stage1Timer = setTimeout(() => {
       setAnimationStage(1);
     }, 500);
@@ -40,8 +48,28 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
       clearTimeout(stage3Timer);
       clearTimeout(stage4Timer);
       clearTimeout(loadingTimer);
+      
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
     };
   }, [onLoadingComplete]);
+
+  const playSound = () => {
+    if (audioRef.current && !audioPlayed) {
+      try {
+        audioRef.current.play();
+        setAudioPlayed(true);
+      } catch (error) {
+        console.error('Ошибка воспроизведения звука:', error);
+      }
+    }
+  };
+
+  if (!isMounted) {
+    return null;
+  }
 
   if (!isVisible) return null;
 
@@ -68,7 +96,11 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
   }
 
   return (
-    <div className={`fixed inset-0 bg-black z-50 flex items-center justify-center ${bgAnimationClass}`}>
+    <div 
+      className={`fixed inset-0 bg-black z-50 flex items-center justify-center ${bgAnimationClass}`}
+      onClick={playSound}
+      style={{ cursor: audioPlayed ? 'default' : 'pointer' }}
+    >
       <div className={`transition-all ${logoAnimationClass}`}>
         <Image
           src={Logo}
@@ -76,6 +108,16 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
           className="h-32 w-32"
         />
       </div>
+      
+      {!audioPlayed && (
+        <div className="absolute bottom-10 text-white text-center px-4">
+          <div className="animate-bounce">
+            <svg className="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

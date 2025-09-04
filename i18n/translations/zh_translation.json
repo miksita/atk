@@ -50,10 +50,10 @@
         },
         "submitButton": "提交申请",
         "successModal": {
-"title": "申请已发送",
-"message": "感谢您的申请！我们将尽快与您联系。",
-"button": "关闭"
-}
+            "title": "申请已发送",
+            "message": "感谢您的申请！我们将尽快与您联系。",
+            "button": "关闭"
+        }
     },
     "footer": {
         "logoAlt": "ATK 标志",
