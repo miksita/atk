@@ -1,4 +1,3 @@
-// LogisticsBlock.tsx
 'use client';
 
 import { useState } from 'react';
@@ -19,7 +18,7 @@ export default function LogisticsBlock() {
   ];
 
   return (
-    <div className="min-h-[70vh] text-white py-8 md:py-10 border-t-1 border-zinc-700">
+    <div className="min-h-[50vh] text-white py-8 md:py-10 border-t-1 border-zinc-700">
       <div className="conteiner-custom">
 
         <div className="border-y-1 border-l-1 md:border-r-1 border-zinc-700 md:rounded-t-lg rounded-tl-lg overflow-hidden">
