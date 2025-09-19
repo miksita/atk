@@ -3,8 +3,7 @@
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import Logo from '../../../public/images/logo-simple.svg'
-// Импортируем второе изображение
-import SecondaryImage from '../../../public/images/logo-text-ru.svg'; // Замените на путь к вашему изображению
+import SecondaryImage from '../../../public/images/logo-text-ru.svg';
 
 interface LoadingScreenProps {
   onLoadingComplete: () => void;
@@ -43,6 +42,10 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
       setAnimationStage(5);
     }, 5000);
 
+    const stage5bTimer = setTimeout(() => {
+      setAnimationStage(5.5);
+    }, 5500);
+
     const stage6Timer = setTimeout(() => {
       setAnimationStage(6);
     }, 8000);
@@ -58,6 +61,7 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
       clearTimeout(stage3Timer);
       clearTimeout(stage4Timer);
       clearTimeout(stage5Timer);
+      clearTimeout(stage5bTimer);
       clearTimeout(stage6Timer);
       clearTimeout(loadingTimer);
 
@@ -90,44 +94,58 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
   let textAnimationClass = 'opacity-0 scale-0';
   let textPositionClass = 'absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-24';
   let bgAnimationClass = 'opacity-100';
-  let secondaryImageClass = 'opacity-0'; // Класс для управления видимостью второго изображения
+  
+  let secondaryImageClass = 'opacity-0 scale-95';
+  let secondaryImagePositionClass = 'absolute top-4 left-[100px] md:left-[200px] lg:left-[260px]';
 
   switch (animationStage) {
     case 0:
       logoAnimationClass = 'scale-0 opacity-0';
       textAnimationClass = 'opacity-0 scale-0';
+      secondaryImageClass = 'opacity-0 scale-95';
       break;
     case 1:
       logoAnimationClass = 'scale-100 opacity-100 transition-all duration-1000';
       textAnimationClass = 'opacity-0 scale-0';
+      secondaryImageClass = 'opacity-0 scale-95';
       break;
     case 2:
-      logoAnimationClass = 'scale-100 opacity-100 animate-pulse';
+      logoAnimationClass = 'scale-100 opacity-100 animate-pulse transition-all duration-1000';
       textAnimationClass = 'opacity-0 scale-0';
+      secondaryImageClass = 'opacity-0 scale-95';
       break;
     case 3:
-      logoAnimationClass = 'scale-75 opacity-100 transition-all duration-1000';
+      logoAnimationClass = 'scale-50 opacity-100 transition-all duration-1000';
       textAnimationClass = 'opacity-0 scale-0';
+      secondaryImageClass = 'opacity-0 scale-95';
       break;
     case 4:
-      logoAnimationClass = 'scale-75 opacity-100 transition-all duration-500';
-      logoPositionClass = 'absolute top-4 left-1/2 transform -translate-x-1/2';
+      logoAnimationClass = 'scale-50 opacity-100 transition-all duration-500';
+      logoPositionClass = 'absolute top-4 left-1/2 transform -translate-x-1/2 transition-all duration-500';
       textAnimationClass = 'opacity-0 scale-0';
+      secondaryImageClass = 'opacity-0 scale-95';
       break;
     case 5:
-      logoAnimationClass = 'scale-75 opacity-100 transition-all duration-500';
-      logoPositionClass = 'absolute top-4 left-[24px] md:left-[100px] lg:left-[150px]';
+      logoAnimationClass = 'scale-50 opacity-100 transition-all duration-500';
+      logoPositionClass = 'absolute top-4 left-[24px] md:left-[100px] lg:left-[150px] transition-all duration-500';
       textAnimationClass = 'opacity-100 scale-100 transition-all duration-500';
+      textPositionClass = 'absolute top-10 left-[24px] md:left-[100px] lg:left-[180px] mt-24 transition-all duration-500';
+      secondaryImageClass = 'opacity-0 scale-95';
+      break;
+    case 5.5:
+      logoAnimationClass = 'scale-50 opacity-100';
+      logoPositionClass = 'absolute top-4 left-[24px] md:left-[100px] lg:left-[150px]';
+      textAnimationClass = 'opacity-100 scale-100';
       textPositionClass = 'absolute top-10 left-[24px] md:left-[100px] lg:left-[180px] mt-24';
-      secondaryImageClass = 'opacity-100 scale-100 transition-all duration-500'; // Показываем второе изображение
+      secondaryImageClass = 'opacity-100 scale-100 transition-all duration-700 ease-out';
       break;
     case 6:
-      logoAnimationClass = 'scale-75 opacity-100 transition-all duration-500';
-      logoPositionClass = 'absolute top-4 left-[24px] md:left-[100px] lg:left-[150px]';
+      logoAnimationClass = 'scale-50 opacity-0 transition-all duration-500';
+      logoPositionClass = 'absolute top-4 left-[24px] md:left-[100px] lg:left-[150px] transition-all duration-500';
       textAnimationClass = 'opacity-0 scale-0 transition-all duration-500';
-      textPositionClass = 'absolute top-10 left-[24px] md:left-[100px] lg:left-[180px] mt-24';
+      textPositionClass = 'absolute top-10 left-[24px] md:left-[100px] lg:left-[180px] mt-24 transition-all duration-500';
       bgAnimationClass = 'opacity-0 transition-opacity duration-500';
-      secondaryImageClass = 'opacity-0 scale-0 transition-all duration-500'; // Скрываем второе изображение
+      secondaryImageClass = 'opacity-0 scale-95 transition-all duration-500 ease-in';
       break;
   }
 
@@ -137,7 +155,7 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
       onClick={playSound}
       style={{ cursor: audioPlayed ? 'default' : 'pointer' }}
     >
-      <div className={`transition-all ${logoAnimationClass} ${logoPositionClass}`}>
+      <div className={`${logoAnimationClass} ${logoPositionClass}`}>
         <Image
           src={Logo}
           alt="Логотип АТК"
@@ -145,12 +163,11 @@ export default function LoadingScreen({ onLoadingComplete }: LoadingScreenProps)
         />
       </div>
 
-      {/* Добавляем второе изображение справа от логотипа */}
-      <div className={`absolute top-4 left-[100px] md:left-[200px] lg:left-[260px] transition-all ${secondaryImageClass}`}>
+      <div className={`${secondaryImagePositionClass} ${secondaryImageClass}`}>
         <Image
           src={SecondaryImage}
           alt="Дополнительное изображение"
-          className="h-32 " // Настройте размер по необходимости
+          className="h-32"
         />
       </div>
 

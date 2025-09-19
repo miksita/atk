@@ -44,15 +44,15 @@ export default function LogoHeader({ className = "", width = 120, height = 40, a
           alt="Logo"
           width={width}
           height={height}
-          className="w-auto h-24"
+          className="w-auto h-16"
         />
       </div>
       
-      <div className={`mt-4 ${isTextAnimating ? 'animate-logo-slide' : 'opacity-0'}`}>
+      {/* <div className={`mt-4 ${isTextAnimating ? 'animate-logo-slide' : 'opacity-0'}`}>
         <span className="text-base font-light tracking-wider text-white">
           Профессиональная логистическая компания АТК
         </span>
-      </div>
+      </div> */}
 
       <style jsx>{`
         @keyframes logoSlide {

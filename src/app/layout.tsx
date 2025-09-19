@@ -19,11 +19,11 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body>
-        <LoadingScreen>
+        {/* <LoadingScreen> */}
           <Header />
           {children}
           <Footer/>
-        </LoadingScreen>
+        {/* </LoadingScreen> */}
       </body>
     </html>
   );

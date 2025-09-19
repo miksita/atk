@@ -1,4 +1,31 @@
 {
+  
+    
+    "HEADER": {
+        "navigation": {
+            "international_transport": {
+                "id": 1,
+                "name": "International Transport",
+                "href": "/transport"
+            },
+            "container_equipment": {
+                "id": 2,
+                "name": "Container Equipment",
+                "href": "/containers"
+            },
+            "contacts": {
+                "id": 3,
+                "name": "Contacts",
+                "href": "/contact"
+            },
+            "resources": {
+                "id": 4,
+                "name": "Resources",
+                "href": "/resourses"
+            }
+        }
+    },
+
     "logisticBlock": {
         "internationalTransportation": {
             "tab": "International Transportation",

@@ -1,4 +1,28 @@
 {
+    "HEADER": {
+        "navigation": {
+            "international_transport": {
+                "id": 1,
+                "name": "国际运输",
+                "href": "/transport"
+            },
+            "container_equipment": {
+                "id": 2,
+                "name": "集装箱设备",
+                "href": "/containers"
+            },
+            "contacts": {
+                "id": 3,
+                "name": "联系方式",
+                "href": "/contact"
+            },
+            "resources": {
+                "id": 4,
+                "name": "参考资料",
+                "href": "/resourses"
+            }
+        }
+    },
     "logisticBlock": {
         "internationalTransportation": {
             "tab": "国际运输",

@@ -1,39 +1,43 @@
 'use client'
 import { useTranslation } from "react-i18next";
-import Image from "next/image";
-import LogoRU from './../../../public/images/logo-ru.svg';
-import LogoEN from './../../../public/images/logo-en.svg';
+import Link from "next/link";
 
 export default function Footer() {
-  const { i18n, t } = useTranslation();
-  const currentLanguage = i18n.language;
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
-  const getLogo = () => {
-    if (currentLanguage === "ru") {
-      return LogoRU;
-    } else {
-      return LogoEN; 
-    }
-  };
-
-  const logo = getLogo();
-
   return (
-    <footer className="py-4 border-t border-zinc-700">
-      <div className="conteiner-custom flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div className="w-32 h-18 relative">
-          <Image
-            src={logo}
-            alt={t("footer.logoAlt")}
-            fill
-            className="object-contain"
-          />
+    <footer className="py-6 md:py-8 border-t border-zinc-800 bg-black">
+      <div className="conteiner-custom">
+        {/* Юридические ссылки */}
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 md:gap-8 text-sm justify-center md:justify-start">
+          <Link
+            href="/privacy-policy"
+            className="text-zinc-400 hover:text-white transition-colors duration-200 text-center inline-flex items-center group"
+          >
+            Политика конфиденциальности
+            <svg className="w-3 h-3 ml-1 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+          <Link
+            href="/data-protection"
+            className="text-zinc-400 hover:text-white transition-colors duration-200 text-center inline-flex items-center group"
+          >
+            Защита персональных данных
+            <svg className="w-3 h-3 ml-1 group-hover:translate-x-0.5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
-        <div className="text-zinc-300 text-sm text-center md:text-left">
-          {`${t("footer.copyrightTextDate")}-${currentYear} ${t("footer.copyrightTextCompany")}`}
+
+        {/* Копирайт */}
+        <div className="mt-6 md:mt-8 pt-6 border-t border-zinc-800">
+          <div className="text-zinc-500 text-xs text-center md:text-start">
+            {`© 4-${currentYear} Логистическая компания АТК.`}
+          </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

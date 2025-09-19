@@ -1,4 +1,29 @@
 {
+      "HEADER": {
+        "navigation": {
+            "international_transport": {
+                "id": 1,
+                "name": "Международные перевозки",
+                "href": "/transport"
+            },
+            "container_equipment": {
+                "id": 2,
+                "name": "Контейнерное оборудование",
+                "href": "/containers"
+            },
+            "contacts": {
+                "id": 3,
+                "name": "Контакты",
+                "href": "/contact"
+            },
+            "resources": {
+                "id": 4,
+                "name": "Справочник",
+                "href": "/resourses"
+            }
+        }
+    },
+
     "logisticBlock": {
         "internationalTransportation": {
             "tab": "Международные перевозки",
